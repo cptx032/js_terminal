@@ -1,0 +1,61 @@
+* {
+	color: #555;
+	font-family: Consolas;
+	opacity: 1;
+	font-size: 12pt;
+}
+
+h1 {
+	font-size: 20pt;
+	margin: 0px;
+}
+
+body {
+	padding: 15px;
+	margin: 0px;
+	background-color: #ffffff;
+}
+
+* a{
+	text-decoration: none;
+	color: #00aacc;
+}
+
+* a:hover{
+	text-decoration: none;
+	color: #33ddff;
+	transition: color .25s ease-in-out;
+	-moz-transition: color .25s ease-in-out;
+	-webkit-transition: color .25s ease-in-out;
+}
+
+#cmd {
+	background-color: #ffffff;
+	border: none;
+	font-family: Consolas;
+	opacity: 1;
+	outline: none;
+	/*
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 0.5px solid white;
+	*/
+}
+
+ul {
+	list-style-type: square;
+	margin: 0px;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.description {
+	color: #888;
+}
+
+.cmdprefix {
+	font-weight: bold;
+}
