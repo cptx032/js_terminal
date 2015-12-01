@@ -85,7 +85,7 @@ function key_handle(e) {
 		cmd.clear();
 	}
 	if (e.keyCode == K_ENTER) {
-		handle_command(cmd.value);
+		handle_command(cmd.value.toLowerCase());
 		cmd.clear();
 	}
 }
