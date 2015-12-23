@@ -1,15 +1,107 @@
 <!doctype html>
+<!-- using http://dixso.github.io/custombox/ -->
 <html>
 	<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="dark.css" id="theme">
-	<script type="text/javascript" src="main.js" id="mainstyle"></script>
-	<title>cptx032 portfolio</title>
+		<title>cptx032</title>
+		<meta charset="utf-8"/>
+		<style>
+			@media only screen and (max-width: 767px) {
+				body
+				{
+					background-image: url(img/mobile.png);
+				}
+			}
+			body {
+				background-image: url(img/download.jpg);
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+				background-color: #303030;
+				text-align: center;
+			}
+			html, body {
+				height: 100%;
+			}
+			html {
+				display: table;
+				margin: auto;
+			}
+			body {
+				display: table-cell;
+				vertical-align: middle;
+				color: white;
+				font-family: Verdana;
+				
+				overflow: hidden /* del scrolls */
+			}
+			.footer {
+				top: 35%;
+				right: 0px;
+				position: fixed;
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.light-title {
+				font-weight: normal;
+				padding: 0px;
+				margin: 0px;
+			}
+			.terminal-text {
+				bottom: 0px;
+				left: 0px;
+				position: absolute;
+				font-family: consolas;
+				text-align: left;
+			}
+			.overlay-msg {
+				display: none;
+				background-color: white;
+				padding: 55px;
+				color:black;
+			}
+			#main-edit {
+				outline: none;
+			}
+		</style>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script src="js/custombox.min.js"></script>
+		<link rel="stylesheet" href="css/custombox.min.css">
 	</head>
 	<body onload="main();">
-		<div id="main">
-			<span id="screen"></span>
-			<span class="cmdprefix" id="cmdprefix">~ root$ </span><input type="text" id="cmd" />
+
+		<div class="overlay-msg" id="overlay-msg">
+			<span>Email me: cptx032 arroba gmail dot com</span>
 		</div>
+
+		<div class="footer">
+			<a href="http://github.com/cptx032">
+				<img src="img/Octocat.png" alt="github" width="64">
+			</a>
+			<br>
+			<a href="http://bitbucket.org/willielawrence">
+				<img src="img/bitbucket.png" alt="bitbucket" width="64">
+			</a>
+			<br>
+			<a href="javascript:Custombox.open({target: '#overlay-msg',effect: 'door',overlayOpacity: 0.3});">
+				<img src="img/mail.png" alt="mail" width="50" style="padding: 8px;">
+			</a>
+			<br>
+			<a href="http://cptx032.co.nf/art/">
+				<img src="img/art.png" alt="mail" width="64">
+			</a>
+		</div>
+
+		<h1 class="light-title">cptx032</h1>
+
+		<center>
+			<h6 class="light-title">I write codes</h6>
+		</center>
+
+		<div class="terminal-text">
+			<span id="screen">guest@cptx032 &sim; &gt;</span>
+			<span id="main-edit" contenteditable="true"></span>
+		</div>
+
 	</body>
 </html>
