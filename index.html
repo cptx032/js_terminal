@@ -5,14 +5,7 @@
 		<title>cptx032</title>
 		<meta charset="utf-8"/>
 		<style>
-			@media only screen and (max-width: 767px) {
-				body
-				{
-					background-image: url(img/mobile.png);
-				}
-			}
 			body {
-				background-image: url(img/download.jpg);
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-attachment: fixed;
@@ -46,6 +39,8 @@
 				font-weight: normal;
 				padding: 0px;
 				margin: 0px;
+				/* text-shadow: 2px 2px 4px #999; */
+				text-shadow: 0 0 3px #aaa, 0 0 5px #999;
 			}
 			.terminal-text {
 				bottom: 0px;
@@ -63,6 +58,9 @@
 			#main-edit {
 				outline: none;
 			}
+			#screen {
+				/* text-shadow: 0 0 3px #aaa, 0 0 5px #999; */
+			}
 		</style>
 		<script type="text/javascript" src="js/main.js"></script>
 		<script src="js/custombox.min.js"></script>
@@ -76,7 +74,7 @@
 
 		<div class="footer">
 			<a href="http://github.com/cptx032">
-				<img src="img/Octocat.png" alt="github" width="64">
+				<img src="img/Octocat.png" alt="github" width="55" style="padding: 5px;">
 			</a>
 			<br>
 			<a href="http://bitbucket.org/willielawrence">
@@ -97,11 +95,11 @@
 		<center>
 			<h6 class="light-title">I write codes</h6>
 		</center>
-
+		
 		<div class="terminal-text">
 			<span id="screen">guest@cptx032 &sim; &gt;</span>
-			<span id="main-edit" contenteditable="true"></span>
+			<span id="main-edit"></span>
 		</div>
-
+		
 	</body>
 </html>
