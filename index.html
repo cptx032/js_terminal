@@ -5,7 +5,7 @@
 		<meta charset="utf-8"/>
 		<style>
 			body {
-				background-color: #303030;
+				background-color: #101010; /*303030*/
 				text-align: center;
 				
 				display: table-cell;
@@ -32,9 +32,9 @@
 				bottom: 0px;
 				left: 0px;
 				position: absolute;
-				font-family: consolas;
+				font-family: monospace;
 				text-align: left;
-				font-size: 10pt;
+				font-size: 8pt;
 			}
 			.overlay-msg {
 				display: none;
@@ -45,11 +45,12 @@
 			/*********************** LEFTER ***********************/
 			.lefter {
 				height: 100%;
-				width: 200px;
+				width: 100%;
 				position: fixed;
 				top: 0px;
 				right: 0px;
-				background-color: #202020;
+				background-color: #080808;
+				opacity: 0.8;
 			}
 			.lefter img {
 				padding: 15px;
@@ -63,7 +64,7 @@
 				padding-bottom: 5px;
 			}
 			.lefter ul li {
-				background-color: #202020;
+				background-color: #080808;
 			}
 			.lefter ul li:hover {
 				background-color: #505050;
@@ -72,7 +73,7 @@
 			.lefter a {
 				text-decoration: none;
 				color: #555;
-				text-align: left;
+				text-align: right;
 			}
 			/******************************************************/
 			#profile-name {
@@ -90,7 +91,7 @@
 		
 		<div class="lefter">
 			<img src="img/profile.png" alt="profile image" width="150"><br>
-			<span id="profile-name">W Lawrence</span>
+			<span id="profile-name">cptx032</span>
 			<ul>
 				<a href="http://github.com/cptx032"><li>Github</li></a>
 				<a href="http://bitbucket.org/willielawrence"><li>Bitbucket</li></a>
@@ -99,13 +100,13 @@
 			</ul>
 		</div>
 		
-		<h1 class="light-title">cptx032</h1>
+		<h1 class="light-title">Willie Lawrence</h1>
 		<center>
-			<h6 class="light-title">cptx032 arroba gmail dot com</h6>
+			<h6 class="light-title">I write codes</h6>
 		</center>
 
 		<div class="terminal-text">
-			<span id="screen"></span> <!-- screen terminal -->
+			<pre id="screen"></pre> <!-- screen terminal -->
 		</div>
 
 	</body>

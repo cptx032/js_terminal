@@ -3,324 +3,670 @@
 	Email: cptx032 arroba gmail dot com
 */
 
-var ael_code = `<pre style='color:#d1d1d1;'><span style='color:#9999a9; '>//		aeon.cpp</span>
-<span style='color:#9999a9; '>//		</span>
-<span style='color:#9999a9; '>//		Copyright 2014 </span><span style='color:#00c4c4; '>&lt;</span><span style='color:#a160f4; '>cptx032@gmail.com</span><span style='color:#00c4c4; '>></span>
-<span style='color:#9999a9; '>//		</span>
-<span style='color:#9999a9; '>//		This program is free software; you can redistribute it and/or modify</span>
-<span style='color:#9999a9; '>//		it under the terms of the GNU General Public License as published by</span>
-<span style='color:#9999a9; '>//		the Free Software Foundation; either version 2 of the License, or</span>
-<span style='color:#9999a9; '>//		(at your option) any later version.</span>
-<span style='color:#9999a9; '>//      </span>
-<span style='color:#9999a9; '>//		This program is distributed in the hope that it will be useful,</span>
-<span style='color:#9999a9; '>//		but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span style='color:#9999a9; '>//		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span style='color:#9999a9; '>//		GNU General Public License for more details.</span>
-<span style='color:#9999a9; '>//		</span>
-<span style='color:#9999a9; '>//		You should have received a copy of the GNU General Public License</span>
-<span style='color:#9999a9; '>//		along with this program; if not, write to the Free Software</span>
-<span style='color:#9999a9; '>//		Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,</span>
-<span style='color:#9999a9; '>//		MA 02110-1301, USA.</span>
-<span style='color:#9999a9; '>//		</span>
-<span style='color:#9999a9; '>//		</span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>ifndef</span><span style='color:#008073; '> AEON_H</span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>define</span><span style='color:#008073; '> AEON_H</span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>include </span><span style='color:#02d045; '>&lt;</span><span style='color:#40015a; '>string.h</span><span style='color:#02d045; '>></span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>include </span><span style='color:#02d045; '>&lt;</span><span style='color:#40015a; '>iostream</span><span style='color:#02d045; '>></span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>include </span><span style='color:#02d045; '>&lt;</span><span style='color:#40015a; '>vector</span><span style='color:#02d045; '>></span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>include </span><span style='color:#02d045; '>&lt;</span><span style='color:#40015a; '>stdlib.h</span><span style='color:#02d045; '>></span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>include </span><span style='color:#02d045; '>&lt;</span><span style='color:#40015a; '>sstream</span><span style='color:#02d045; '>></span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>include </span><span style='color:#02d045; '>&lt;</span><span style='color:#40015a; '>fstream</span><span style='color:#02d045; '>></span>
+var ael_code = `<pre style='color:#000000;'><span style='color:#696969; '>/*</span>
+<span style='color:#696969; '>Author: Willie Lawrence - </span><span style='color:#676767; '>cptx032 arroba gmail dot com</span><span style='color:#696969; '></span>
+<span style='color:#696969; '>*/</span>
 
-<span style='color:#e66170; font-weight:bold; '>typedef</span> <span style='color:#e66170; font-weight:bold; '>void</span><span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>*</span>Function<span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#e66170; font-weight:bold; '>typedef</span> <span style='color:#e66170; font-weight:bold; '>unsigned</span> <span style='color:#e66170; font-weight:bold; '>int</span> uint<span style='color:#b060b0; '>;</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifndef</span><span style='color:#2f2f2f; '> AEL_H</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>define</span><span style='color:#2f2f2f; '> AEL_H</span>
 
-<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> to_string<span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>double</span> value<span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>ostringstream</span> ss<span style='color:#b060b0; '>;</span>
-	ss <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>&lt;</span> value<span style='color:#b060b0; '>;</span>
-	<span style='color:#e66170; font-weight:bold; '>return</span> ss<span style='color:#d2cd86; '>.</span>str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>iostream</span><span style='color:#2a2a2a; '>></span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>stdlib.h</span><span style='color:#2a2a2a; '>></span><span style='color:#2f2f2f; '> </span><span style='color:#696969; '>// exit</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>sstream</span><span style='color:#2a2a2a; '>></span><span style='color:#2f2f2f; '> </span><span style='color:#696969; '>// cast double to string</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>vector</span><span style='color:#2a2a2a; '>></span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>unordered_map</span><span style='color:#2a2a2a; '>></span><span style='color:#2f2f2f; '> </span><span style='color:#696969; '>// hash_map</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>fstream</span><span style='color:#2a2a2a; '>></span><span style='color:#2f2f2f; '> </span><span style='color:#696969; '>// reading file</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifdef</span><span style='color:#2f2f2f; '> __unix</span>
+<span style='color:#2f2f2f; '>	</span><span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>unistd.h</span><span style='color:#2a2a2a; '>></span><span style='color:#2f2f2f; '> </span><span style='color:#696969; '>// getpid</span>
+<span style='color:#2f2f2f; '>	</span><span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>dlfcn.h</span><span style='color:#2a2a2a; '>></span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifdef</span><span style='color:#2f2f2f; '> _WIN32</span>
+<span style='color:#2f2f2f; '>	</span><span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>include </span><span style='color:#2a2a2a; '>&lt;</span><span style='color:#333333; '>windows.h</span><span style='color:#2a2a2a; '>></span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
 
-<span style='color:#e66170; font-weight:bold; '>namespace</span> AeonError
-<span style='color:#b060b0; '>{</span>
-	<span style='color:#e66170; font-weight:bold; '>enum</span> AeonError
-	<span style='color:#b060b0; '>{</span>
-		NO_ERROR<span style='color:#d2cd86; '>,</span> CAST_ERROR<span style='color:#d2cd86; '>,</span> SYNTAX_ERROR
-	<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>define</span><span style='color:#2f2f2f; '> AEL_VERSION </span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>1.0.0.1</span><span style='color:#2a2a2a; '>"</span>
 
-<span style='color:#e66170; font-weight:bold; '>class</span> AeonFunction
-<span style='color:#b060b0; '>{</span>
-<span style='color:#e66170; font-weight:bold; '>public</span><span style='color:#e34adc; '>:</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> name<span style='color:#b060b0; '>;</span>
-	Function <span style='color:#e66170; font-weight:bold; '>pointer</span><span style='color:#b060b0; '>;</span>
-	AeonFunction<span style='color:#d2cd86; '>(</span><span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> name<span style='color:#d2cd86; '>,</span> Function <span style='color:#e66170; font-weight:bold; '>pointer</span><span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>name <span style='color:#d2cd86; '>=</span> name<span style='color:#b060b0; '>;</span>
-		<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span><span style='color:#e66170; font-weight:bold; '>pointer</span> <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>pointer</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#b060b0; '>}</span>
-	<span style='color:#d2cd86; '>~</span>AeonFunction<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span><span style='color:#b060b0; '>}</span>
-	<span style='color:#e66170; font-weight:bold; '>void</span> call<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span><span style='color:#e66170; font-weight:bold; '>pointer</span><span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#b060b0; '>}</span>
-<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
+<span style='color:#696969; '>// [doc] When a function is not found the function saved</span>
+<span style='color:#696969; '>// in this var is runned</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>define</span><span style='color:#2f2f2f; '> AEL_DEFAULT_FUNCTION </span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>__ael_default_function</span><span style='color:#2a2a2a; '>"</span>
 
-<span style='color:#e66170; font-weight:bold; '>class</span> AeonInterpreter
-<span style='color:#b060b0; '>{</span>
-<span style='color:#e34adc; '>	</span><span style='color:#e66170; font-weight:bold; '>private</span><span style='color:#e34adc; '>:</span>
-	<span style='color:#e66170; font-weight:bold; '>static</span> AeonInterpreter<span style='color:#d2cd86; '>*</span> default_interpreter<span style='color:#b060b0; '>;</span>
-<span style='color:#e34adc; '>	</span><span style='color:#e66170; font-weight:bold; '>public</span><span style='color:#e34adc; '>:</span>
-	<span style='color:#e66170; font-weight:bold; '>static</span> AeonInterpreter <span style='color:#d2cd86; '>*</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#e66170; font-weight:bold; '>return</span> default_interpreter<span style='color:#b060b0; '>;</span>
-	<span style='color:#b060b0; '>}</span>
-	<span style='color:#e66170; font-weight:bold; '>static</span> <span style='color:#e66170; font-weight:bold; '>void</span> set_default<span style='color:#d2cd86; '>(</span>AeonInterpreter<span style='color:#d2cd86; '>*</span> d<span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		default_interpreter <span style='color:#d2cd86; '>=</span> d<span style='color:#b060b0; '>;</span>
-	<span style='color:#b060b0; '>}</span>
-	AeonInterpreter<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#9999a9; '>// inits the first value</span>
-		<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>.</span>push_back<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>0</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-		AeonInterpreter<span style='color:#b060b0; '>::</span>set_default<span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#b060b0; '>}</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>vector</span><span style='color:#b060b0; '>&lt;</span>AeonFunction<span style='color:#b060b0; '>></span> function_list<span style='color:#b060b0; '>;</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>vector</span><span style='color:#b060b0; '>&lt;</span><span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span><span style='color:#b060b0; '>></span> var_list<span style='color:#b060b0; '>;</span>
-	uint line_error<span style='color:#b060b0; '>;</span>
-	uint column_error<span style='color:#b060b0; '>;</span>
-	uint function_index<span style='color:#b060b0; '>;</span>
-	uint var_index<span style='color:#b060b0; '>;</span>
-	AeonError<span style='color:#b060b0; '>::</span>AeonError run<span style='color:#d2cd86; '>(</span><span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>vector</span><span style='color:#b060b0; '>&lt;</span><span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span><span style='color:#b060b0; '>></span> script_lines<span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#e66170; font-weight:bold; '>bool</span> get_error <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>false</span><span style='color:#b060b0; '>;</span>
-		AeonError<span style='color:#b060b0; '>::</span>AeonError status <span style='color:#d2cd86; '>=</span> AeonError<span style='color:#b060b0; '>::</span>NO_ERROR<span style='color:#b060b0; '>;</span>
-		<span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span>uint line<span style='color:#d2cd86; '>=</span><span style='color:#008c00; '>0</span><span style='color:#b060b0; '>;</span> line <span style='color:#d2cd86; '>&lt;</span> script_lines<span style='color:#d2cd86; '>.</span>size<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>line<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-		<span style='color:#b060b0; '>{</span>
-			<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>get_error<span style='color:#d2cd86; '>)</span>
-			<span style='color:#b060b0; '>{</span>
-				<span style='color:#9999a9; '>// stop the loop</span>
-				<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-			<span style='color:#b060b0; '>}</span>
-			<span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span>uint _c <span style='color:#d2cd86; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#b060b0; '>;</span> _c <span style='color:#d2cd86; '>&lt;</span> <span style='color:#e66170; font-weight:bold; '>strlen</span><span style='color:#d2cd86; '>(</span>script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> _c<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-			<span style='color:#b060b0; '>{</span>
-				<span style='color:#e66170; font-weight:bold; '>char</span> t <span style='color:#d2cd86; '>=</span> script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span>_c<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-				<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'.'</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>function_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>function_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>call<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-				<span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'#'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span><span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span><span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'%'</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>substr<span style='color:#d2cd86; '>(</span>_c<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-				<span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'>'</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>.</span>size<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span>
-					<span style='color:#b060b0; '>{</span>
-						<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>.</span>push_back<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>0</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#b060b0; '>}</span>
-				<span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'&lt;'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>-</span><span style='color:#b060b0; '>;</span><span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'v'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>function_index<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span><span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'^'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>function_index<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>-</span><span style='color:#b060b0; '>;</span><span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'+'</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#e66170; font-weight:bold; '>double</span> d <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>atof</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> to_string<span style='color:#d2cd86; '>(</span>d<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-				<span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'-'</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#e66170; font-weight:bold; '>double</span> d <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>atof</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> to_string<span style='color:#d2cd86; '>(</span>d<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-				<span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'('</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#9999a9; '>// while loop</span>
-					<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> while_block <span style='color:#d2cd86; '>=</span> script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>substr<span style='color:#d2cd86; '>(</span>_c<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#e66170; font-weight:bold; '>while</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>!</span><span style='color:#d2cd86; '>=</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>0</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span>
-					<span style='color:#b060b0; '>{</span>
-						<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>vector</span><span style='color:#b060b0; '>&lt;</span><span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span><span style='color:#b060b0; '>></span> wb<span style='color:#b060b0; '>;</span>
-						wb<span style='color:#d2cd86; '>.</span>push_back<span style='color:#d2cd86; '>(</span>while_block<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>run<span style='color:#d2cd86; '>(</span>wb<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#b060b0; '>}</span>
-					<span style='color:#9999a9; '>// jumpto the next line</span>
-					<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-				<span style='color:#b060b0; '>}</span>
-				<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>t <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'{'</span><span style='color:#d2cd86; '>)</span>
-				<span style='color:#b060b0; '>{</span>
-					<span style='color:#9999a9; '>// the next char is '='?</span>
-					<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span>_c<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'='</span><span style='color:#d2cd86; '>)</span>
-					<span style='color:#b060b0; '>{</span>
-						<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>)</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump the next c</span>
-							_c<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>continue</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-						<span style='color:#e66170; font-weight:bold; '>else</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump to next line</span>
-							<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-					<span style='color:#b060b0; '>}</span>
-					<span style='color:#9999a9; '>// the next char is '|'?</span>
-					<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span>_c<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'|'</span><span style='color:#d2cd86; '>)</span>
-					<span style='color:#b060b0; '>{</span>
-						<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>!</span><span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>)</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump the next char</span>
-							_c<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>continue</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-						<span style='color:#e66170; font-weight:bold; '>else</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump to next line</span>
-							<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-					<span style='color:#b060b0; '>}</span>
-					<span style='color:#9999a9; '>// the next char is ']'?</span>
-					<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span>_c<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>']'</span><span style='color:#d2cd86; '>)</span>
-					<span style='color:#b060b0; '>{</span>
-						<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>istringstream</span> ss_actual<span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>double</span> actual <span style='color:#d2cd86; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>double</span> last_value <span style='color:#d2cd86; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#b060b0; '>;</span>
-						ss_actual <span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>></span> actual<span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>if</span><span style='color:#d2cd86; '>(</span>ss_actual<span style='color:#d2cd86; '>.</span>fail<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// casting error</span>
-							get_error  <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>true</span><span style='color:#b060b0; '>;</span>
-							status <span style='color:#d2cd86; '>=</span> AeonError<span style='color:#b060b0; '>::</span>CAST_ERROR<span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>line_error <span style='color:#d2cd86; '>=</span> line<span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>column_error <span style='color:#d2cd86; '>=</span> _c<span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-						<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>istringstream</span> ss_last<span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-						ss_last <span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>></span> last_value<span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>if</span><span style='color:#d2cd86; '>(</span>ss_last<span style='color:#d2cd86; '>.</span>fail<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// casting error</span>
-							get_error  <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>true</span><span style='color:#b060b0; '>;</span>
-							status <span style='color:#d2cd86; '>=</span> AeonError<span style='color:#b060b0; '>::</span>CAST_ERROR<span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>line_error <span style='color:#d2cd86; '>=</span> line<span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>column_error <span style='color:#d2cd86; '>=</span> _c<span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-						<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>actual <span style='color:#d2cd86; '>></span> last_value<span style='color:#d2cd86; '>)</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump the next char</span>
-							_c<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>continue</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-						<span style='color:#e66170; font-weight:bold; '>else</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump to next line</span>
-							<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-					<span style='color:#b060b0; '>}</span>
-					<span style='color:#9999a9; '>// the next char is '['?</span>
-					<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>script_lines<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span>_c<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'['</span><span style='color:#d2cd86; '>)</span>
-					<span style='color:#b060b0; '>{</span>
-						<span style='color:#e66170; font-weight:bold; '>double</span> actual <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>atof</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>double</span> last_value <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>atof</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span><span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>actual <span style='color:#d2cd86; '>&lt;</span> last_value<span style='color:#d2cd86; '>)</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump the next char</span>
-							_c<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span>
-							<span style='color:#e66170; font-weight:bold; '>continue</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-						<span style='color:#e66170; font-weight:bold; '>else</span>
-						<span style='color:#b060b0; '>{</span>
-							<span style='color:#9999a9; '>// jump to next line</span>
-							<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-						<span style='color:#b060b0; '>}</span>
-					<span style='color:#b060b0; '>}</span>
-					<span style='color:#9999a9; '>// if is not any of these values</span>
-					<span style='color:#e66170; font-weight:bold; '>else</span>
-					<span style='color:#b060b0; '>{</span>
-						get_error <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>true</span><span style='color:#b060b0; '>;</span>
-						status <span style='color:#d2cd86; '>=</span> AeonError<span style='color:#b060b0; '>::</span>SYNTAX_ERROR<span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>line_error <span style='color:#d2cd86; '>=</span> line<span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>this</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>column_error <span style='color:#d2cd86; '>=</span> _c<span style='color:#b060b0; '>;</span>
-						<span style='color:#e66170; font-weight:bold; '>break</span><span style='color:#b060b0; '>;</span>
-					<span style='color:#b060b0; '>}</span>
-				<span style='color:#b060b0; '>}</span>
-			<span style='color:#b060b0; '>}</span>
-		<span style='color:#b060b0; '>}</span>
-		<span style='color:#e66170; font-weight:bold; '>return</span> status<span style='color:#b060b0; '>;</span>
-	<span style='color:#b060b0; '>}</span>
-<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
-AeonInterpreter<span style='color:#d2cd86; '>*</span> AeonInterpreter<span style='color:#b060b0; '>::</span>default_interpreter <span style='color:#d2cd86; '>=</span> <span style='color:#007d45; '>NULL</span><span style='color:#b060b0; '>;</span>
-AeonInterpreter <span style='color:#d2cd86; '>*</span>i <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>new</span> AeonInterpreter<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#e66170; font-weight:bold; '>void</span> print<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>cout</span> <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>&lt;</span> AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span>AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-<span style='color:#e66170; font-weight:bold; '>void</span> println<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>cout</span> <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>&lt;</span> AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span>AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>&lt;</span> <span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>endl</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-<span style='color:#e66170; font-weight:bold; '>void</span> get_input<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>cin</span> <span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>></span> AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span>AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-<span style='color:#e66170; font-weight:bold; '>void</span> run<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-	AeonInterpreter <span style='color:#d2cd86; '>*</span>ae_i <span style='color:#d2cd86; '>=</span> AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>vector</span><span style='color:#b060b0; '>&lt;</span><span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span><span style='color:#b060b0; '>></span> line<span style='color:#b060b0; '>;</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> string_to_parse <span style='color:#d2cd86; '>=</span> ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span>ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#9999a9; '>// parsing string</span>
-	line<span style='color:#d2cd86; '>.</span>push_back<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span>uint i<span style='color:#d2cd86; '>=</span><span style='color:#008c00; '>0</span><span style='color:#b060b0; '>;</span>i<span style='color:#d2cd86; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>strlen</span><span style='color:#d2cd86; '>(</span>string_to_parse<span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>i<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#e66170; font-weight:bold; '>if</span><span style='color:#d2cd86; '>(</span>string_to_parse<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#00c4c4; '>'\n'</span><span style='color:#d2cd86; '>)</span>
-		<span style='color:#b060b0; '>{</span>
-			line<span style='color:#d2cd86; '>.</span>push_back<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-		<span style='color:#b060b0; '>}</span>
-		<span style='color:#e66170; font-weight:bold; '>else</span>
-		<span style='color:#b060b0; '>{</span>
-			line<span style='color:#d2cd86; '>[</span>line<span style='color:#d2cd86; '>.</span>size<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>=</span> string_to_parse<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-		<span style='color:#b060b0; '>}</span>
-	<span style='color:#b060b0; '>}</span>
-	ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>run<span style='color:#d2cd86; '>(</span>line<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-<span style='color:#e66170; font-weight:bold; '>void</span> read<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-	AeonInterpreter <span style='color:#d2cd86; '>*</span>ae_i <span style='color:#d2cd86; '>=</span> AeonInterpreter<span style='color:#b060b0; '>::</span>get_default<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#e66170; font-weight:bold; '>const</span> <span style='color:#e66170; font-weight:bold; '>char</span><span style='color:#d2cd86; '>*</span> file_path <span style='color:#d2cd86; '>=</span> ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span>ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>.</span>c_str<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>ifstream</span> script_file<span style='color:#d2cd86; '>(</span>file_path<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> script_line<span style='color:#b060b0; '>;</span>
-	<span style='color:#00dddd; '>std</span><span style='color:#b060b0; '>::</span><span style='color:#e66170; font-weight:bold; '>string</span> final_string <span style='color:#d2cd86; '>=</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>;</span>
-	<span style='color:#e66170; font-weight:bold; '>if</span><span style='color:#d2cd86; '>(</span>script_file<span style='color:#d2cd86; '>.</span>is_open<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span>
-	<span style='color:#b060b0; '>{</span>
-		<span style='color:#e66170; font-weight:bold; '>while</span><span style='color:#d2cd86; '>(</span>getline<span style='color:#d2cd86; '>(</span>script_file<span style='color:#d2cd86; '>,</span> script_line<span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span>
-		<span style='color:#b060b0; '>{</span>
-			final_string <span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>=</span> script_line<span style='color:#b060b0; '>;</span>
-			final_string <span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>=</span> <span style='color:#02d045; '>"</span><span style='color:#008080; '>\n</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>;</span>
-		<span style='color:#b060b0; '>}</span>
-	<span style='color:#b060b0; '>}</span>
-	ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_list<span style='color:#d2cd86; '>[</span>ae_i<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>var_index<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> final_string<span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-<span style='color:#9999a9; '>/*int main(int argc, char const *argv[])</span>
-<span style='color:#9999a9; '>{</span>
-<span style='color:#9999a9; '>	//AeonInterpreter::set_default(i);</span>
-<span style='color:#9999a9; '>	AeonFunction p("print", print);</span>
-<span style='color:#9999a9; '>	AeonFunction pl("println", println);</span>
-<span style='color:#9999a9; '>	AeonFunction gi("input", get_input);</span>
-<span style='color:#9999a9; '>	i->function_list.push_back(pl);</span>
-<span style='color:#9999a9; '>	i->function_list.push_back(p);</span>
-<span style='color:#9999a9; '>	i->function_list.push_back(gi);</span>
-<span style='color:#9999a9; '>	std::vector&lt;std::string> lines;</span>
-<span style='color:#9999a9; '>	lines.push_back("%Digite algo: ");</span>
-<span style='color:#9999a9; '>	lines.push_back("v.v.^^.");</span>
-<span style='color:#9999a9; '>	i->run(lines);</span>
-<span style='color:#9999a9; '>	return 0;</span>
-<span style='color:#9999a9; '>}</span>
-<span style='color:#9999a9; '>*/</span>
-<span style='color:#008073; '>#</span><span style='color:#008073; '>endif</span>
+<span style='color:#575757; font-weight:bold; '>typedef</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> tok<span style='color:#555555; '>;</span> <span style='color:#696969; '>// token</span>
+<span style='color:#575757; font-weight:bold; '>typedef</span> std<span style='color:#555555; '>::</span>vector<span style='color:#555555; '>&lt;</span>tok<span style='color:#555555; '>></span> phrase<span style='color:#555555; '>;</span>
+<span style='color:#575757; font-weight:bold; '>typedef</span> <span style='color:#575757; font-weight:bold; '>unsigned</span> <span style='color:#575757; font-weight:bold; '>int</span> uint<span style='color:#555555; '>;</span>
+<span style='color:#575757; font-weight:bold; '>typedef</span> std<span style='color:#555555; '>::</span>unordered_map<span style='color:#555555; '>&lt;</span>tok<span style='color:#555555; '>,</span> tok<span style='color:#555555; '>></span> aeldict<span style='color:#555555; '>;</span>
+<span style='color:#575757; font-weight:bold; '>typedef</span> aeldict<span style='color:#555555; '>(</span><span style='color:#555555; '>*</span>aelnamefunction<span style='color:#555555; '>)</span><span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>void</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+
+<span style='color:#575757; font-weight:bold; '>bool</span> is_a_blank_char<span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>char</span> _c<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_c<span style='color:#555555; '>=</span><span style='color:#555555; '>=</span><span style='color:#4c4c4c; '>' '</span><span style='color:#555555; '>|</span><span style='color:#555555; '>|</span>_c<span style='color:#555555; '>=</span><span style='color:#555555; '>=</span><span style='color:#4c4c4c; '>'\t'</span><span style='color:#555555; '>|</span><span style='color:#555555; '>|</span>_c<span style='color:#555555; '>=</span><span style='color:#555555; '>=</span><span style='color:#4c4c4c; '>'\n'</span><span style='color:#555555; '>|</span><span style='color:#555555; '>|</span>_c<span style='color:#555555; '>=</span><span style='color:#555555; '>=</span><span style='color:#4c4c4c; '>'\r'</span><span style='color:#555555; '>)</span>
+		<span style='color:#575757; font-weight:bold; '>return</span> <span style='color:#575757; font-weight:bold; '>true</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>return</span> <span style='color:#575757; font-weight:bold; '>false</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>// [doc] Split a string by _c char argument</span>
+phrase split<span style='color:#555555; '>(</span>tok _entry<span style='color:#555555; '>,</span> <span style='color:#575757; font-weight:bold; '>char</span> _c<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	phrase _result<span style='color:#555555; '>;</span>
+	_result<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>_entry<span style='color:#555555; '>.</span>length<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_entry<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> _c<span style='color:#555555; '>)</span>
+			_result<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>else</span>
+			_result<span style='color:#555555; '>[</span>_result<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> _entry<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>return</span> _result<span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] replaces a char by another in _entry</span>
+tok <span style='color:#575757; font-weight:bold; '>replace</span><span style='color:#555555; '>(</span>tok _entry<span style='color:#555555; '>,</span> <span style='color:#575757; font-weight:bold; '>char</span> _c<span style='color:#555555; '>,</span> <span style='color:#575757; font-weight:bold; '>char</span> _r<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	tok _result <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>_entry<span style='color:#555555; '>.</span>length<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_entry<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> _c<span style='color:#555555; '>)</span>
+			_result <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> _r<span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>else</span>
+			_result <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> _entry<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>return</span> _result<span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>// [doc] Join two file paths</span>
+tok join<span style='color:#555555; '>(</span>tok _dirname<span style='color:#555555; '>,</span> tok _filename<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	_dirname <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>replace</span><span style='color:#555555; '>(</span>_dirname<span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>'\\'</span><span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>'/'</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	_filename <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>replace</span><span style='color:#555555; '>(</span>_filename<span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>'\\'</span><span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>'/'</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_dirname<span style='color:#555555; '>.</span>back<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'/'</span><span style='color:#555555; '>)</span>
+		_dirname <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'/'</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_filename<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'/'</span><span style='color:#555555; '>)</span>
+		_filename <span style='color:#555555; '>=</span> _filename<span style='color:#555555; '>.</span>substr<span style='color:#555555; '>(</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>,</span>_filename<span style='color:#555555; '>.</span>length<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span> <span style='color:#696969; '>// cut the first char</span>
+	<span style='color:#575757; font-weight:bold; '>return</span> _dirname <span style='color:#555555; '>+</span> _filename<span style='color:#555555; '>;</span> <span style='color:#696969; '>// path/file.ext</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] transforms float to string</span>
+tok to_string<span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>float</span> _v<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>ostringstream</span> str_concatenated<span style='color:#555555; '>;</span>
+	str_concatenated <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> _v<span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>return</span> str_concatenated<span style='color:#555555; '>.</span>str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] returns the content of a text file</span>
+<span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> get_file_content<span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>const</span> <span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> file_path<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> contents<span style='color:#555555; '>;</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> line<span style='color:#555555; '>;</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>ifstream</span> script_file<span style='color:#555555; '>(</span>file_path<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>script_file<span style='color:#555555; '>.</span>is_open<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> _ael_path <span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>;</span>
+		_ael_path <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>getenv</span><span style='color:#555555; '>(</span><span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span><span style='color:#555555; '>)</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>AEL_PATH</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_ael_path <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Environment variable not found...please reinstall Ael</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>abort</span><span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		phrase _paths <span style='color:#555555; '>=</span> split<span style='color:#555555; '>(</span>_ael_path<span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>';'</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>_paths<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			tok _possible_path <span style='color:#555555; '>=</span> join<span style='color:#555555; '>(</span>_paths<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>,</span> file_path<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			script_file<span style='color:#555555; '>.</span>open<span style='color:#555555; '>(</span>_possible_path<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>,</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>ifstream</span><span style='color:#555555; '>::</span>in<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>script_file<span style='color:#555555; '>.</span>is_open<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+				<span style='color:#575757; font-weight:bold; '>break</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>script_file<span style='color:#555555; '>.</span>is_open<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Script '</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> file_path <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>' not found!</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>return</span> <span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span><span style='color:#555555; '>)</span><span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+	<span style='color:#555555; '>}</span>
+	
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>script_file<span style='color:#555555; '>.</span>is_open<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#575757; font-weight:bold; '>while</span> <span style='color:#555555; '>(</span>getline<span style='color:#555555; '>(</span>script_file<span style='color:#555555; '>,</span> line<span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>line<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'#'</span><span style='color:#555555; '>)</span> <span style='color:#696969; '>// [</span><span style='color:#ffffff; background:#555555; font-weight:bold; '>fixme] if begins with space it will be ignored</span>
+			<span style='color:#555555; '>{</span>
+				contents <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> line <span style='color:#555555; '>+</span> <span style='color:#4c4c4c; '>'\n'</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+		<span style='color:#555555; '>}</span>
+		script_file<span style='color:#555555; '>.</span>close<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>else</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>'</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> file_path <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>'</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> file not found</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>exit</span><span style='color:#555555; '>(</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>return</span> <span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span><span style='color:#555555; '>)</span>contents<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#575757; font-weight:bold; '>class</span> aelinterpreter
+<span style='color:#555555; '>{</span>
+<span style='color:#575757; font-weight:bold; '>public</span><span style='color:#adadad; '>:</span>
+	<span style='color:#696969; '>// dicionário chave: string valor: string > guarda as variáveis</span>
+	aeldict dictionary<span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>typedef</span> <span style='color:#575757; font-weight:bold; '>void</span><span style='color:#555555; '>(</span><span style='color:#555555; '>*</span>aelfunction<span style='color:#555555; '>)</span><span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span><span style='color:#555555; '>,</span>phrase<span style='color:#555555; '>&amp;</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#696969; '>// dicionário cuja chave é o nome da função e o valor é um ponteiro para função</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>unordered_map</span><span style='color:#555555; '>&lt;</span>tok<span style='color:#555555; '>,</span> aelfunction<span style='color:#555555; '>></span> functions<span style='color:#555555; '>;</span>
+
+	aelinterpreter<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>{</span><span style='color:#555555; '>}</span>
+	<span style='color:#696969; '>//[doc] traduz um script para tokens e adiciona</span>
+	<span style='color:#696969; '>// numa frase</span>
+	<span style='color:#575757; font-weight:bold; '>void</span> to_tokens<span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>const</span> <span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> _s<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> script <span style='color:#555555; '>=</span> _s<span style='color:#555555; '>;</span>
+		ph<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		uint block_counter <span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>script<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>char</span> actual_char <span style='color:#555555; '>=</span> script<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>;</span>
+			<span style='color:#696969; '>// se estiver dentro de um bloco</span>
+			<span style='color:#575757; font-weight:bold; '>if</span> <span style='color:#555555; '>(</span>block_counter <span style='color:#555555; '>></span> <span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>)</span>
+			<span style='color:#555555; '>{</span>
+				<span style='color:#696969; '>// e abrir outro bloco</span>
+				<span style='color:#575757; font-weight:bold; '>if</span> <span style='color:#555555; '>(</span>actual_char <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'{'</span><span style='color:#555555; '>)</span>
+				<span style='color:#555555; '>{</span>
+					<span style='color:#696969; '>// aumenta o contador de blocos</span>
+					<span style='color:#696969; '>// para saber quando realmente</span>
+					<span style='color:#696969; '>// o caractere '}' fecha o bloco</span>
+					block_counter<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>;</span>
+					ph<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> actual_char<span style='color:#555555; '>;</span>
+				<span style='color:#555555; '>}</span>
+				<span style='color:#696969; '>// se ele fechar um bloco</span>
+				<span style='color:#575757; font-weight:bold; '>else</span> <span style='color:#575757; font-weight:bold; '>if</span> <span style='color:#555555; '>(</span>actual_char <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'}'</span><span style='color:#555555; '>)</span>
+				<span style='color:#555555; '>{</span>
+					<span style='color:#696969; '>// decrementa o contador de blocos</span>
+					block_counter<span style='color:#555555; '>-</span><span style='color:#555555; '>-</span><span style='color:#555555; '>;</span>
+					<span style='color:#696969; '>// se for maior que zero é porque</span>
+					<span style='color:#696969; '>// se fechou um bloco dentro de outro</span>
+					<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>block_counter <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>)</span>
+					<span style='color:#555555; '>{</span>
+						<span style='color:#696969; '>// inclui o caractere '}'</span>
+						<span style='color:#696969; '>// porque faz parte da string</span>
+						ph<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> actual_char<span style='color:#555555; '>;</span>
+					<span style='color:#555555; '>}</span>
+				<span style='color:#555555; '>}</span>
+				<span style='color:#696969; '>// se ele digitar qualquer outro caractere</span>
+				<span style='color:#696969; '>// dentro de um bloco</span>
+				<span style='color:#696969; '>// simplesmente adiciona o caractere</span>
+				<span style='color:#575757; font-weight:bold; '>else</span>
+				<span style='color:#555555; '>{</span>
+					ph<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> actual_char<span style='color:#555555; '>;</span>
+				<span style='color:#555555; '>}</span>
+			<span style='color:#555555; '>}</span>
+			<span style='color:#696969; '>// se não houver blocos abertos</span>
+			<span style='color:#575757; font-weight:bold; '>else</span>
+			<span style='color:#555555; '>{</span>
+				<span style='color:#696969; '>// e ele abrir um bloco</span>
+				<span style='color:#575757; font-weight:bold; '>if</span> <span style='color:#555555; '>(</span>actual_char <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'{'</span><span style='color:#555555; '>)</span>
+				<span style='color:#555555; '>{</span>
+					<span style='color:#696969; '>// incrementa o contador de blocos</span>
+					<span style='color:#696969; '>// e não salva o caractere '{'</span>
+					<span style='color:#696969; '>// no próximo loop já não entra nesse</span>
+					<span style='color:#696969; '>// 'else'</span>
+					block_counter<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>;</span>
+				<span style='color:#555555; '>}</span>
+				<span style='color:#696969; '>// se é um caractere em branco e</span>
+				<span style='color:#696969; '>// não estiver dentro de um bloco</span>
+				<span style='color:#575757; font-weight:bold; '>else</span> <span style='color:#575757; font-weight:bold; '>if</span> <span style='color:#555555; '>(</span>is_a_blank_char<span style='color:#555555; '>(</span>actual_char<span style='color:#555555; '>)</span><span style='color:#555555; '>)</span> <span style='color:#696969; '>// [</span><span style='color:#ffffff; background:#555555; font-weight:bold; '>fixme] >  and last is not blank</span>
+				<span style='color:#555555; '>{</span>
+					<span style='color:#696969; '>// adiciona outro token</span>
+					<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span>
+						ph<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+				<span style='color:#555555; '>}</span>
+				<span style='color:#696969; '>// se o caractere é um ';' adiciona</span>
+				<span style='color:#696969; '>// outro token</span>
+				<span style='color:#575757; font-weight:bold; '>else</span> <span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>actual_char <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'.'</span><span style='color:#555555; '>)</span>
+				<span style='color:#555555; '>{</span>
+					ph<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>.</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+					ph<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+				<span style='color:#555555; '>}</span>
+				<span style='color:#575757; font-weight:bold; '>else</span>
+				<span style='color:#555555; '>{</span>
+					ph<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> actual_char<span style='color:#555555; '>;</span>
+				<span style='color:#555555; '>}</span>
+			<span style='color:#555555; '>}</span>
+		<span style='color:#555555; '>}</span>
+		<span style='color:#696969; '>// se sobrar algum token vazio</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			ph<span style='color:#555555; '>.</span>erase<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>end<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+	<span style='color:#555555; '>}</span>
+	tok get_value<span style='color:#555555; '>(</span>tok key<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#696969; '>// if key starts with '"'</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>key<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'{'</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>return</span> key<span style='color:#555555; '>.</span>substr<span style='color:#555555; '>(</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>,</span> key<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+
+		aeldict<span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>const_iterator</span> got <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>dictionary<span style='color:#555555; '>.</span><span style='color:#575757; font-weight:bold; '>find</span><span style='color:#555555; '>(</span>key<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>got <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>dictionary<span style='color:#555555; '>.</span>end<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>dictionary<span style='color:#555555; '>[</span>key<span style='color:#555555; '>]</span><span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'{'</span><span style='color:#555555; '>)</span>
+			<span style='color:#555555; '>{</span>
+				<span style='color:#575757; font-weight:bold; '>return</span> <span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>get_value<span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>dictionary<span style='color:#555555; '>[</span>key<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+			<span style='color:#575757; font-weight:bold; '>else</span>
+			<span style='color:#555555; '>{</span>
+				<span style='color:#575757; font-weight:bold; '>return</span> <span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>dictionary<span style='color:#555555; '>[</span>key<span style='color:#555555; '>]</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+		<span style='color:#555555; '>}</span>
+
+		<span style='color:#575757; font-weight:bold; '>return</span> key<span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#696969; '>//[doc] executa um único comando identificado pelo</span>
+	<span style='color:#696969; '>// primeiro token passando como argumento todos</span>
+	<span style='color:#696969; '>// os outros tokens (inclusive o primeiro argumento)</span>
+	<span style='color:#575757; font-weight:bold; '>void</span> run_cmd<span style='color:#555555; '>(</span>phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>unordered_map</span><span style='color:#555555; '>&lt;</span>tok<span style='color:#555555; '>,</span> aelfunction<span style='color:#555555; '>></span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>const_iterator</span> got <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>functions<span style='color:#555555; '>.</span><span style='color:#575757; font-weight:bold; '>find</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>got <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>functions<span style='color:#555555; '>.</span>end<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>functions<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span><span style='color:#555555; '>(</span><span style='color:#555555; '>*</span><span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>,</span> ph<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		<span style='color:#575757; font-weight:bold; '>else</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#696969; '>// [</span><span style='color:#ffffff; background:#555555; font-weight:bold; '>fixme] > evitar criar uma nova lista</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>vector</span><span style='color:#555555; '>&lt;</span>tok<span style='color:#555555; '>></span> _new_phrase<span style='color:#555555; '>;</span>
+			_new_phrase<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>get_value<span style='color:#555555; '>(</span>AEL_DEFAULT_FUNCTION<span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>for</span> <span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+			<span style='color:#555555; '>{</span>
+				_new_phrase<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+			<span style='color:#696969; '>// [</span><span style='color:#ffffff; background:#555555; font-weight:bold; '>fixme] > chamar introspectivamente a funcao run_cmd</span>
+			<span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>functions<span style='color:#555555; '>[</span>_new_phrase<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span><span style='color:#555555; '>(</span><span style='color:#555555; '>*</span><span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>,</span> _new_phrase<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#696969; '>// std::cerr &lt;&lt; "Can't find '" &lt;&lt; ph[0] &lt;&lt; "' function" &lt;&lt; std::endl;</span>
+		<span style='color:#555555; '>}</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#696969; '>//[doc] recebe um script completo e executa cada</span>
+	<span style='color:#696969; '>// comando que estiver separado por ';'</span>
+	<span style='color:#575757; font-weight:bold; '>void</span> interprets<span style='color:#555555; '>(</span>phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		phrase p<span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>.</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span>
+			<span style='color:#555555; '>{</span>
+				<span style='color:#575757; font-weight:bold; '>this</span><span style='color:#555555; '>-</span><span style='color:#555555; '>></span>run_cmd<span style='color:#555555; '>(</span>p<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+				p<span style='color:#555555; '>.</span>clear<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+			<span style='color:#575757; font-weight:bold; '>else</span>
+			<span style='color:#555555; '>{</span>
+				p<span style='color:#555555; '>.</span>push_back<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+		<span style='color:#555555; '>}</span>
+	<span style='color:#555555; '>}</span>
+<span style='color:#555555; '>}</span><span style='color:#555555; '>;</span>
+<span style='color:#575757; font-weight:bold; '>typedef</span> <span style='color:#575757; font-weight:bold; '>void</span><span style='color:#555555; '>(</span><span style='color:#555555; '>*</span>aelfunction<span style='color:#555555; '>)</span><span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span><span style='color:#555555; '>,</span>phrase<span style='color:#555555; '>&amp;</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+
+<span style='color:#696969; '>//[doc] print each argument in a new line</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_trace<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span>ael<span style='color:#555555; '>,</span>phrase<span style='color:#555555; '>&amp;</span>ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] creates a var in interpreter dictionary</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_set<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span>ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span>ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>3</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>else</span> <span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>else</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: set takes 1 or 2 arguments (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] get user entry from terminal</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_input<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span>ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span>ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 argument (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	tok I<span style='color:#555555; '>;</span>
+	getline<span style='color:#555555; '>(</span><span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cin</span><span style='color:#555555; '>,</span> I<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> I<span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] interprets a string like a script (reflexion)</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_run<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span>ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span>ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 argument (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> content <span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	phrase p<span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>to_tokens<span style='color:#555555; '>(</span>content<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>,</span> p<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>interprets<span style='color:#555555; '>(</span>p<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] quit of application</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_exit<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>></span> <span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span>
+		<span style='color:#575757; font-weight:bold; '>exit</span><span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>atoi</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>else</span>
+		<span style='color:#575757; font-weight:bold; '>exit</span><span style='color:#555555; '>(</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] print each argument one after other (without</span>
+<span style='color:#696969; '>// white spaces)</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_print<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span>ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span>ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] pass first argument to operational system</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_sys<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>&lt;</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes 1 or more arguments (0 given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> _cmd_final <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		_cmd_final <span style='color:#555555; '>+</span><span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>+</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>system</span><span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>_cmd_final<span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] deletes a variable of interpreter dictionary</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_del<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>=</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes 1 or more arguments (0 given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>.</span>erase<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] list all variables</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_ls<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	aeldict<span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>iterator</span> it <span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>.</span>begin<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>while</span><span style='color:#555555; '>(</span>it <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>.</span>end<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>it<span style='color:#555555; '>-</span><span style='color:#555555; '>></span>first<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'_'</span><span style='color:#555555; '>)</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>'</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> it<span style='color:#555555; '>-</span><span style='color:#555555; '>></span>first <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>' </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>else</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>it<span style='color:#555555; '>-</span><span style='color:#555555; '>></span>first<span style='color:#555555; '>.</span>length<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>></span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>2</span> <span style='color:#555555; '>&amp;</span><span style='color:#555555; '>&amp;</span> it<span style='color:#555555; '>-</span><span style='color:#555555; '>></span>first<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> <span style='color:#4c4c4c; '>'_'</span><span style='color:#555555; '>)</span>
+			<span style='color:#555555; '>{</span>
+				<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>'</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> it<span style='color:#555555; '>-</span><span style='color:#555555; '>></span>first <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>' </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+			<span style='color:#555555; '>}</span>
+		<span style='color:#555555; '>}</span>
+		it<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] list all functions</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_lf<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>unordered_map</span><span style='color:#555555; '>&lt;</span>tok<span style='color:#555555; '>,</span> <span style='color:#575757; font-weight:bold; '>void</span><span style='color:#555555; '>(</span><span style='color:#555555; '>*</span><span style='color:#555555; '>)</span><span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span><span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span><span style='color:#555555; '>)</span><span style='color:#555555; '>></span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>iterator</span> it <span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>.</span>begin<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>while</span><span style='color:#555555; '>(</span>it <span style='color:#555555; '>!</span><span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>.</span>end<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>'</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> it<span style='color:#555555; '>-</span><span style='color:#555555; '>></span>first <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>' </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+		it<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] stores the first argument plus one in</span>
+<span style='color:#696969; '>// first argument</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_opr_unary_plus<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 arguments (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	tok _value01 <span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>double</span> _v01 <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>atof</span><span style='color:#555555; '>(</span>_value01<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> to_string<span style='color:#555555; '>(</span>_v01<span style='color:#555555; '>+</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] stores the first argument minus one in</span>
+<span style='color:#696969; '>// first argument</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_opr_unary_minus<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 arguments (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	tok _value01 <span style='color:#555555; '>=</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>double</span> _v01 <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>atof</span><span style='color:#555555; '>(</span>_value01<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> to_string<span style='color:#555555; '>(</span>_v01<span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] stores the division of first and second arguments</span>
+<span style='color:#696969; '>// in  the third argument</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_neg<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>+</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes 1 or 2 arguments (no one given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>else</span> <span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+		ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> to_string<span style='color:#555555; '>(</span><span style='color:#555555; '>-</span><span style='color:#575757; font-weight:bold; '>atof</span><span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>else</span> <span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#2e2e2e; '>3</span><span style='color:#555555; '>)</span>
+		ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> to_string<span style='color:#555555; '>(</span><span style='color:#555555; '>-</span><span style='color:#575757; font-weight:bold; '>atof</span><span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>else</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>+</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>+</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes 1 or 2 arguments</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>// [doc] get environment variable</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_getenv<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>3</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 2 arguments (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> env_value <span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>;</span>
+	env_value <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>getenv</span><span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>env_value<span style='color:#555555; '>)</span>
+		ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> env_value<span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] read and then interprets a Ael script file</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_import<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 argument (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>string</span> content <span style='color:#555555; '>=</span> get_file_content<span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	phrase p<span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>to_tokens<span style='color:#555555; '>(</span>content<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>,</span> p<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>interprets<span style='color:#555555; '>(</span>p<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifdef</span><span style='color:#2f2f2f; '> __unix</span>
+<span style='color:#696969; '>//[doc] returns to a var the process id of program</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_getpid<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 argument (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>int</span> pid <span style='color:#555555; '>=</span> <span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>int</span><span style='color:#555555; '>)</span>getpid<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> to_string<span style='color:#555555; '>(</span>pid<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] returns to a var the process id of the parent program</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_getppid<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>!</span><span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>2</span><span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Error: </span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> takes exactly 1 argument (</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ph<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>-</span><span style='color:#2e2e2e; '>1</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '> given)</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	<span style='color:#575757; font-weight:bold; '>int</span> pid <span style='color:#555555; '>=</span> <span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>int</span><span style='color:#555555; '>)</span>getppid<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	ael<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> to_string<span style='color:#555555; '>(</span>pid<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
+
+<span style='color:#696969; '>// [doc] does nothing</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_nop<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#696969; '>// [</span><span style='color:#ffffff; background:#555555; font-weight:bold; '>fixme] > do nothing here...</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#696969; '>//[doc] loads and dynamic library (c++) from a file path</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_load<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> _phrase<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifdef</span><span style='color:#2f2f2f; '> _WIN32</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_load<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> _phrase<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>HINSTANCE</span> dllHandle <span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>;</span>
+	dllHandle <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>LoadLibrary</span><span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>_phrase<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>dllHandle<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#696969; '>// finding the library in Windows's AEL_PATH</span>
+		<span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> _ael_path <span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>;</span>
+		_ael_path <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>getenv</span><span style='color:#555555; '>(</span><span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span><span style='color:#555555; '>)</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>AEL_PATH</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_ael_path <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Environment variable not found...please reinstall Ael</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>abort</span><span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		phrase _paths <span style='color:#555555; '>=</span> split<span style='color:#555555; '>(</span>_ael_path<span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>';'</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>_paths<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			tok _possible_path <span style='color:#555555; '>=</span> join<span style='color:#555555; '>(</span>_paths<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>,</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>_phrase<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			dllHandle <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>LoadLibrary</span><span style='color:#555555; '>(</span>_possible_path<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>dllHandle<span style='color:#555555; '>)</span>
+				<span style='color:#575757; font-weight:bold; '>break</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		<span style='color:#696969; '>// not found in absolute path and not found in AEL_PATH</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>dllHandle<span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cout</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Library '</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>_phrase<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>' not found!</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+	<span style='color:#555555; '>}</span>
+	aelfunction lib_init<span style='color:#555555; '>;</span>
+	lib_init <span style='color:#555555; '>=</span> <span style='color:#555555; '>(</span>aelfunction<span style='color:#555555; '>)</span><span style='color:#575757; font-weight:bold; '>GetProcAddress</span><span style='color:#555555; '>(</span>dllHandle<span style='color:#555555; '>,</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>ael_lib_init</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>lib_init<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Library not formated!</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	lib_init<span style='color:#555555; '>(</span>ael<span style='color:#555555; '>,</span> _phrase<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifdef</span><span style='color:#2f2f2f; '> __unix</span>
+<span style='color:#696969; '>//[doc] unix implementation</span>
+<span style='color:#575757; font-weight:bold; '>void</span> _ael_load<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span> ael<span style='color:#555555; '>,</span> phrase<span style='color:#555555; '>&amp;</span> ph<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	<span style='color:#575757; font-weight:bold; '>void</span><span style='color:#555555; '>*</span> dllHandle <span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>;</span>
+	dllHandle <span style='color:#555555; '>=</span> dlopen<span style='color:#555555; '>(</span>ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>,</span> RTLD_LAZY<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>dllHandle<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#696969; '>// finding the library in Unix's AEL_PATH</span>
+		<span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span> _ael_path <span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>;</span>
+		_ael_path <span style='color:#555555; '>=</span> <span style='color:#575757; font-weight:bold; '>getenv</span><span style='color:#555555; '>(</span><span style='color:#555555; '>(</span><span style='color:#575757; font-weight:bold; '>char</span><span style='color:#555555; '>*</span><span style='color:#555555; '>)</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>AEL_PATH</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>_ael_path <span style='color:#555555; '>=</span><span style='color:#555555; '>=</span> <span style='color:#404040; '>NULL</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Environment variable not found...please reinstall Ael</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>abort</span><span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		phrase _paths <span style='color:#555555; '>=</span> split<span style='color:#555555; '>(</span>_ael_path<span style='color:#555555; '>,</span> <span style='color:#4c4c4c; '>';'</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>for</span><span style='color:#555555; '>(</span>uint i<span style='color:#555555; '>=</span><span style='color:#2e2e2e; '>0</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>&lt;</span>_paths<span style='color:#555555; '>.</span>size<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>i<span style='color:#555555; '>+</span><span style='color:#555555; '>+</span><span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			tok _possible_path <span style='color:#555555; '>=</span> join<span style='color:#555555; '>(</span>_paths<span style='color:#555555; '>[</span>i<span style='color:#555555; '>]</span><span style='color:#555555; '>,</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			dllHandle <span style='color:#555555; '>=</span> dlopen<span style='color:#555555; '>(</span>_possible_path<span style='color:#555555; '>.</span>c_str<span style='color:#555555; '>(</span><span style='color:#555555; '>)</span><span style='color:#555555; '>,</span> RTLD_LAZY<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span>dllHandle<span style='color:#555555; '>)</span>
+				<span style='color:#575757; font-weight:bold; '>break</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+		<span style='color:#696969; '>// not found in absolute path and not found in AEL_PATH</span>
+		<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>dllHandle<span style='color:#555555; '>)</span>
+		<span style='color:#555555; '>{</span>
+			<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Library '</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> ael<span style='color:#555555; '>.</span>get_value<span style='color:#555555; '>(</span>ph<span style='color:#555555; '>[</span><span style='color:#2e2e2e; '>1</span><span style='color:#555555; '>]</span><span style='color:#555555; '>)</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>' not found!</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+			<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+		<span style='color:#555555; '>}</span>
+	<span style='color:#555555; '>}</span>
+	aelfunction lib_init<span style='color:#555555; '>;</span>
+	lib_init <span style='color:#555555; '>=</span> <span style='color:#555555; '>(</span>aelfunction<span style='color:#555555; '>)</span>dlsym<span style='color:#555555; '>(</span>dllHandle<span style='color:#555555; '>,</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>ael_lib_init</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#575757; font-weight:bold; '>if</span><span style='color:#555555; '>(</span><span style='color:#555555; '>!</span>lib_init<span style='color:#555555; '>)</span>
+	<span style='color:#555555; '>{</span>
+		<span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>cerr</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>Library not formated!</span><span style='color:#2a2a2a; '>"</span> <span style='color:#555555; '>&lt;</span><span style='color:#555555; '>&lt;</span> <span style='color:#939393; '>std</span><span style='color:#555555; '>::</span><span style='color:#575757; font-weight:bold; '>endl</span><span style='color:#555555; '>;</span>
+		<span style='color:#575757; font-weight:bold; '>return</span><span style='color:#555555; '>;</span>
+	<span style='color:#555555; '>}</span>
+	lib_init<span style='color:#555555; '>(</span>ael<span style='color:#555555; '>,</span> ph<span style='color:#555555; '>)</span><span style='color:#555555; '>;</span>
+	<span style='color:#696969; '>// dlclose(dllhandle);</span>
+<span style='color:#555555; '>}</span>
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
+
+<span style='color:#696969; '>//[doc] load main functions</span>
+<span style='color:#575757; font-weight:bold; '>void</span> load_main_ael_functions<span style='color:#555555; '>(</span>aelinterpreter<span style='color:#555555; '>&amp;</span>i<span style='color:#555555; '>)</span>
+<span style='color:#555555; '>{</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>trace</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_trace<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>set</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_set<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>input</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_input<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>run</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_run<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>exit</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_exit<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>sys</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_sys<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>del</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_del<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>ls</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_ls<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>lf</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_lf<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>print</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_print<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>++</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_opr_unary_plus<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>--</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_opr_unary_minus<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>neg</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_neg<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>getenv</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_getenv<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>import</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_import<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>nop</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_nop<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>load</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_load<span style='color:#555555; '>;</span>
+<span style='color:#2f2f2f; '>	</span><span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>ifdef</span><span style='color:#2f2f2f; '> __unix</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>getpid</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_getpid<span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>functions<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>getppid</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> _ael_getppid<span style='color:#555555; '>;</span>
+<span style='color:#2f2f2f; '>	</span><span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
+
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>__version</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> AEL_VERSION<span style='color:#555555; '>;</span>
+
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\\</span><span style='color:#4c4c4c; '>n</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\n</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\\</span><span style='color:#4c4c4c; '>t</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\t</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\\</span><span style='color:#4c4c4c; '>b</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\b</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\\</span><span style='color:#4c4c4c; '>r</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\r</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\\</span><span style='color:#4c4c4c; '>a</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#7d7d7d; '>\a</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+	i<span style='color:#555555; '>.</span>dictionary<span style='color:#555555; '>[</span><span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>__ael_default_function</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>]</span> <span style='color:#555555; '>=</span> <span style='color:#2a2a2a; '>"</span><span style='color:#4c4c4c; '>run</span><span style='color:#2a2a2a; '>"</span><span style='color:#555555; '>;</span>
+<span style='color:#555555; '>}</span>
+
+<span style='color:#2f2f2f; '>#</span><span style='color:#2f2f2f; '>endif</span>
 </pre>`
 
 var terminal;
@@ -348,8 +694,8 @@ function get_window_width() {
 
 function main() {
 	terminal = document.getElementById('screen');
-	if (get_window_width() < 640) {
-		// do it
+	if (get_window_width() < 981) {
+		document.getElementsByTagName('html')[0].style.fontSize = "30pt";
 	}
 	setInterval(loop, 100);
 }
